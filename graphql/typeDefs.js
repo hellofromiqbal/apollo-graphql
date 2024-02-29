@@ -5,7 +5,7 @@ const typeDefs = `#graphql
     email: String!
     amount: Int!
     token: String!
-    tokenExpiryTime: Int!
+    expired: Int!
   }
   type Query {
     users: [User]

@@ -16,7 +16,7 @@ const UserSchema = new Schema({
   token: {
     type: String
   },
-  tokenExpiry: {
+  expired: {
     type: Number
   }
 }, { timestamps: true });
