@@ -9,6 +9,9 @@ const typeDefs = `#graphql
   }
   type Query {
     users: [User]
+    authService(email: String!): User
+    userService(tokenId: String!, email: String!): User
+    postService(memberNo: String!): User
   }
 `;
 
