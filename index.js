@@ -1,32 +1,12 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
+import typeDefs from './graphql/typeDefs.js';
+import resolvers from './graphql/resolver.js';
+import connectDB from './config/db.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
-  }
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
-
-const resolvers = {
-  Query: {
-    books: () => books,
-  },
-};
+connectDB();
 
 const server = new ApolloServer({
   typeDefs,
